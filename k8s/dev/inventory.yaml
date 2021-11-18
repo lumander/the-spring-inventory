@@ -101,6 +101,8 @@ items:
     selector:
       matchLabels:
         deployment: inventory
+        app: inventory
+        version: v1
     strategy: {}
     template:
       metadata:
@@ -110,6 +112,8 @@ items:
         creationTimestamp: null
         labels:
           deployment: inventory
+          app: inventory
+          version: v1
       spec:
         containers:
         - env:
@@ -135,12 +139,14 @@ items:
     name: inventory
   spec:
     ports:
-    - name: 8080-tcp
+    - name: http
       port: 8080
       protocol: TCP
       targetPort: 8080
     selector:
       deployment: inventory
+      app: inventory
+      version: v1
   status:
     loadBalancer: {}
 kind: List

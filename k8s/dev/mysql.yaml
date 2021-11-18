@@ -60,6 +60,8 @@ items:
         labels:
           db: mysql
           deployment: mysql
+          app: mysql
+          version: v1
       spec:
         containers:
         - env:
@@ -92,7 +94,7 @@ items:
     name: mysql
   spec:
     ports:
-    - name: 3306-tcp
+    - name: tcp
       port: 3306
       protocol: TCP
       targetPort: 3306
