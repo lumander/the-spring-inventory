@@ -8,4 +8,5 @@ ARG JAR_FILE=app/target/*.jar
 WORKDIR /app
 COPY --from=builder ${JAR_FILE} app.jar
 EXPOSE 8080
+RUN apt-get update && apt-get install -y tcpdump 
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
